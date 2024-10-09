@@ -1,6 +1,10 @@
 from scapy.all import *
 
 def ftp_commands(pkt) -> str:
+    """
+    Live traffic: True
+    PCAP file: True
+    """
     if pkt.haslayer(TCP):
             if (pkt.sport == 21 or pkt.dport == 21) and pkt.haslayer(Raw):
                 command: dict = {
@@ -20,7 +24,4 @@ def ftp_commands(pkt) -> str:
                     
                     
                 return f"{command['src']:<16}: {command['src port']:<5}   ==>    {command['dst']:<16}:{command['dst port']:<5}  /  {command['ftp payload']}"
-            
-def ftp_data(pkt) -> bytes:
-    dport: str = input("Please provide a destination port used by FTP for data transfer: \n")
     

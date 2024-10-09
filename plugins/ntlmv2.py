@@ -2,6 +2,10 @@ from scapy.all import *
 
 # Returns a table of details from NTLMv2 SSP in SMB packets   
 def ntlmv2_smb(pkt) -> str:
+    """
+    Live Traffic: True
+    PCAP File: True
+    """
     # Create a list of SMB packets
     if pkt.haslayer("SMB2_Session_Setup_Request"):
     # Create a list of SMB packets containing SMB2_Session_Setup_Request

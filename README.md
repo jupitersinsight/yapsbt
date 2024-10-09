@@ -28,14 +28,25 @@ $ git clone https://github.com/jupitersinsight/packet_sniffer
 ```
 ## Usage
 
--r, --read:  pcap file(s) to parse  
+-r, --read:  path to the pcap file(s)  
 -b, --bpf: BPF syntax to filter packets  
--i, --interface:iInterface to read live packets from   
--a, --action: Specify which *plugin* function to call
+-i, --interface: interface to sniff live traffic   
+-a, --action: specifies which *plugin* function to call
 
-The folder *plugins* contains the modules that hold the functions that can be passed as argument to the sniffer.
+The folder *plugins* contains the modules with the functions that can be passed as argument to the sniffer.
 
 Example: packet-sniffer.py --read file.pcap --bpf 'tcp port 21' --action ftp_commands
+
+## List of plugins
+
+|Module|Function|What it does?|Purpose|
+|-|-|-|-|
+|ip.py|ip_conversations|Extract SourceIP:Port, DestinationIP:Port and Payload|Quick overview of IPv4 communications|
+|ip.py|ip6_conversations|Extract SourceIP:Port, DestinationIP:Port and Payload|Quick overview of IPv6 communications|
+|dns.py|dns_qr|Extract DNS queries and answers|Quick overview to detect simple covert channel techniques|
+|netbios.py|netbios_aitm|Extract NetBIOS queries and answers|Quick overview to detect Adversary-in-The-Middle attacks|
+|ntlmv2.py|ntlmv2_smb|Extract Session Setup Request and Successful Session Setup Request|Quick overview to detect Pass-The-Hash attacks|
+|ftp.py|ftp_commands|Extract FTP payloads|Catch FTP commands and FTP-DATA ports|
 
 <!--Links-->
 [issues]:https://github.com/jupitersinsight/packet_sniffer/issues "packet-sniffer Issues ➶"

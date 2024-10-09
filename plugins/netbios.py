@@ -2,6 +2,10 @@ from scapy.all import *
 
 # Find NetBIOS Attack-in-the-Middle exploitation
 def netbios_aitm(pkt) -> str:
+    """
+    Live Traffic: True
+    PCAP File: True
+    """
     if pkt.haslayer(IP) and (pkt.haslayer(TCP) or pkt.haslayer(UDP)):
         try:
             # Find NetBIOS requests
