@@ -47,6 +47,7 @@ Example: packet-sniffer.py --read file.pcap --bpf 'tcp port 21' --action ftp_com
 |netbios.py|netbios_aitm|Extract NetBIOS queries and answers|Quick overview to detect Adversary-in-The-Middle attacks|
 |ntlmv2.py|ntlmv2_smb|Extract Session Setup Request and Successful Session Setup Request|Quick overview to detect Pass-The-Hash attacks|
 |ftp.py|ftp_commands|Extract FTP payloads|Catch FTP commands and FTP-DATA ports|
+|dns.py|dns_c2_beacon|Extract information from outbound DNS queries and calculate entropy of subdomains|
 
 <!--Links-->
 [issues]:https://github.com/jupitersinsight/packet_sniffer/issues "packet-sniffer Issues ➶"
