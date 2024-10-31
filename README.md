@@ -13,7 +13,7 @@ Yes! Another Packet Sniffer 🐽 for the Blue Team! 💙
 
 ## About This Repository
 
-This repo contains code for a packet sniffer and its plugins for analysis of live traffic and pcap files. 
+This repository contains code of a packet sniffer and its plugins for analysis of live traffic and pcap files. 
 
 ## Installation
 
@@ -35,7 +35,7 @@ $ git clone https://github.com/jupitersinsight/yapsbt
 
 The folder *plugins* contains the modules with the functions that can be passed as argument to the sniffer.
 
-Example: sniffer.py --read file.pcap --bpf 'tcp port 21' --action ftp_commands
+Example: sniffer.py --read file.pcap --bpf 'udp port 53' --action dns_c2_beacon
 
 ## List of plugins
 
@@ -43,7 +43,6 @@ Example: sniffer.py --read file.pcap --bpf 'tcp port 21' --action ftp_commands
 |-|-|-|-|
 |ip.py|ip_conversations|Extract SourceIP:Port, DestinationIP:Port and Payload|Quick overview of IPv4 communications|
 |ip.py|ip6_conversations|Extract SourceIP:Port, DestinationIP:Port and Payload|Quick overview of IPv6 communications|
-|dns.py|dns_qr|Extract DNS queries and answers|Quick overview to detect simple covert channel techniques|
 |netbios.py|netbios_aitm|Extract NetBIOS queries and answers|Quick overview to detect Adversary-in-The-Middle attacks|
 |ntlmv2.py|ntlmv2_smb|Extract Session Setup Request and Successful Session Setup Request|Quick overview to detect Pass-The-Hash attacks|
 |ftp.py|ftp_commands|Extract FTP payloads|Catch FTP commands and FTP-DATA ports|
