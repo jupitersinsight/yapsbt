@@ -44,6 +44,6 @@ def dns_c2_beacon(pkt) -> str:
                     qtype: str = "*"
             subdomain: list = pkt[DNS].qd.qname.decode().split(".")
             subdomain.remove('')
-            query_entropy: float = shannon_entropy(".".join(subdomain[:-2]))
+            query_entropy: float = shannon_entropy(".".join(subdomain[:-2]).lower())
             sleep(1)
             return "IP: {0:<16} Type {1:<7} ID {2:<10} Query {3:<35} Subd entropy: {4}".format(pkt[IP].src, qtype, pkt[DNS].id, pkt[DNS].qd.qname.decode(), query_entropy)
